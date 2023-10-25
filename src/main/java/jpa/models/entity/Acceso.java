@@ -1,6 +1,7 @@
-package spring.models.entity;
+package jpa.models.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,46 +9,30 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
 
 @Entity
-@Table(name = "Accesos")
-public class Acceso implements Serializable {
+@Table(name = "Accesos",schema="gbp_operacional")
+public class Acceso {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_acceso")
+	@Column(name = "id_acceso",nullable=false)
 	private Long id;
 	@Column(name = "codigo_acceso")
 	private String codigo;
 	@Column(name = "descripcion_acceso")
 	private String descripcion;
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
+	@OneToMany(mappedBy = "acceso")
+	List<Usuario>accesoDeUsuario;
+	public Acceso(Long id, String codigo, String descripcion, List<Usuario> accesoDeUsuario) {
+		super();
 		this.id = id;
-	}
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
 		this.codigo = codigo;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+		this.accesoDeUsuario = accesoDeUsuario;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Acceso() {
+		super();
 	}
-
-	private static final long serialVersionUID = 1L;
 
 }
