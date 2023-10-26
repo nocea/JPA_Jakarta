@@ -23,40 +23,48 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_usuario", nullable=false)
-	private long idUsuario;
+	private long id_usuario;
 	
 	@Column(name="dni_usuario", nullable=false)
-	private String dniUsuario;
+	private String dni_usuario;
 	
 	@Column(name="nombre_usuario")
-	private String nombreUsuario;
+	private String nombre_usuario;
 	
 	@Column(name="apellidos_usuario")
-	private String apellidosUsuario;
+	private String apellidos_usuario;
 	
 	@Column(name="tlf_usuario")
-	private String tlfUsuario;
+	private String tlf_usuario;
 	
 	@Column(name="email_usuario")
-	private String emailUsuario;
+	private String email_usuario;
 	
 	@Column(name="clave_usuario")
-	private String claveUsuario;
+	private String clave_usuario;
 	
+	public long getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(long id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
 	@Column(name="estaBloqueado_usuario")
-	private boolean estaBloqueadoUsuario;
+	private boolean estaBloqueado_usuario;
 	
 	@Column(name="fch_fin_bloqueo")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar fchFinBloqueo;
+	private Calendar fch_fin_bloqueo;
 	
 	@Column(name="fch_alta_usuario")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar fchAltaUsuario;
+	private Calendar fch_alta_usuario;
 	
 	@Column(name="fch_baja_usuario")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar fchBajaUsuario;
+	private Calendar fch_baja_usuario;
 	
     @ManyToOne
     @JoinColumn(name="id_acceso")
@@ -68,21 +76,23 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(String dniUsuario, String nombreUsuario, String apellidosUsuario, String tlfUsuario,
-			String emailUsuario, String claveUsuario, boolean estaBloqueadoUsuario, Calendar fchFinBloqueo,
-			Calendar fchAltaUsuario, Calendar fchBajaUsuario, Acceso acceso) {
+	public Usuario(String dni_usuario, String nombre_usuario, String apellidos_usuario, String tlf_usuario,
+			String email_usuario, String clave_usuario, boolean estaBloqueado_usuario, Calendar fch_fin_bloqueo,
+			Calendar fch_alta_usuario, Calendar fch_baja_usuario, Acceso acceso, List<Prestamo> prestamosUsuarios) {
 		super();
-		this.dniUsuario = dniUsuario;
-		this.nombreUsuario = nombreUsuario;
-		this.apellidosUsuario = apellidosUsuario;
-		this.tlfUsuario = tlfUsuario;
-		this.emailUsuario = emailUsuario;
-		this.claveUsuario = claveUsuario;
-		this.estaBloqueadoUsuario = estaBloqueadoUsuario;
-		this.fchFinBloqueo = fchFinBloqueo;
-		this.fchAltaUsuario = fchAltaUsuario;
-		this.fchBajaUsuario = fchBajaUsuario;
+		this.dni_usuario = dni_usuario;
+		this.nombre_usuario = nombre_usuario;
+		this.apellidos_usuario = apellidos_usuario;
+		this.tlf_usuario = tlf_usuario;
+		this.email_usuario = email_usuario;
+		this.clave_usuario = clave_usuario;
+		this.estaBloqueado_usuario = estaBloqueado_usuario;
+		this.fch_fin_bloqueo = fch_fin_bloqueo;
+		this.fch_alta_usuario = fch_alta_usuario;
+		this.fch_baja_usuario = fch_baja_usuario;
 		this.acceso = acceso;
-	}	
+		this.prestamosUsuarios = prestamosUsuarios;
+	}
+
 	
 }

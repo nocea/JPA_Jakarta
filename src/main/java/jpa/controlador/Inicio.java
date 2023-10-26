@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jpa.daos.Acceso;
+import jpa.daos.Usuario;
 
 public class Inicio {
 

@@ -27,6 +27,9 @@ public class Prestamo {
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
 	Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name="id_estado_prestamo")
+	Estado_Prestamo estado_prestamo;
 	public Prestamo(Calendar fch_inicio_prestamo, Calendar fch_fin_prestamo, Calendar fch_entrega_prestamo, Usuario usuario) {
 		super();
 		this.fch_inicio_prestamo = fch_inicio_prestamo;
