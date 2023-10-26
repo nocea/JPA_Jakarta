@@ -3,7 +3,7 @@ package jpa.controlador;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import jpa.models.entity.Acceso;
+import jpa.daos.Acceso;
 
 public class Inicio {
 

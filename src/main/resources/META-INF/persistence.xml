@@ -5,8 +5,9 @@
              version="3.0">
              <!-- Equivalente al context en c# -->
 <persistence-unit name="default">   
-        <class>jpa.models.entity.Acceso</class>
-        <class>jpa.models.entity.Usuario</class>
+        <class>jpa.daos.Acceso</class>
+        <class>jpa.daos.Usuario</class>
+        <class>jpa.daos.Prestamo</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>

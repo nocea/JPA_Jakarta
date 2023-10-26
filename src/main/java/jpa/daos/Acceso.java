@@ -1,4 +1,4 @@
-package jpa.models.entity;
+package jpa.daos;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -29,7 +29,6 @@ public class Acceso {
 		
 		this.codigo_acceso = codigo;
 		this.descripcion_acceso = descripcion;
-		
 	}
 	public Acceso() {
 		super();

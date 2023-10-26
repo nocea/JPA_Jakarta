@@ -1,6 +1,7 @@
-package jpa.models.entity;
+package jpa.daos;
 
 import java.util.Calendar;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -59,18 +61,17 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name="id_acceso")
     Acceso acceso;
-	
-	//CONSTRUCTORES
+	@OneToMany(mappedBy = "usuario")
+	List<Prestamo>prestamosUsuarios;
 
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(long idUsuario, String dniUsuario, String nombreUsuario, String apellidosUsuario, String tlfUsuario,
+	public Usuario(String dniUsuario, String nombreUsuario, String apellidosUsuario, String tlfUsuario,
 			String emailUsuario, String claveUsuario, boolean estaBloqueadoUsuario, Calendar fchFinBloqueo,
 			Calendar fchAltaUsuario, Calendar fchBajaUsuario, Acceso acceso) {
 		super();
-		this.idUsuario = idUsuario;
 		this.dniUsuario = dniUsuario;
 		this.nombreUsuario = nombreUsuario;
 		this.apellidosUsuario = apellidosUsuario;
