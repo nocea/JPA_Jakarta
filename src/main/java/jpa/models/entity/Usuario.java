@@ -1,5 +1,6 @@
 package jpa.models.entity;
-import java.security.Timestamp;
+
+import java.util.Calendar;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,61 +10,78 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "Usuarios",schema="gpb_operacional")
-public class Usuario  {
-	// Esto le da el valor de pk.
+@Table(name="usuarios", schema="gbp_operacional")
+public class Usuario {	
+	
+
 	@Id
-	// esto le dice que sea auto incrementado.
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	// @Column(name="nombre de la columna de la base de datos")
-	@Column(name = "id_usuario")
-	private Long id;
-	@Column(name = "dni_usuario")
-	private String dni;
-	@Column(name = "nombre_usuario")
-	private String nombre;
-	@Column(name = "apellidos_usuario")
-	private String apellidos;
-	@Column(name = "tlf_usuario")
-	private String telefono;
-	@Column(name = "email_usuario")
-	private String email;
-	@Column(name = "clave_usuario")
-	private String clave;
-	@Column(name = "id_acceso")
-	private int idAcceso;
-	@Column(name = "estaBloqueado_usuario")
-	private Boolean estaBloqueado;
-	@Column(name = "fch_fin_bloqueo_usuario")
-	private Timestamp fechaFinBloqueo;
-	@Column(name = "fch_baja_usuario")
-	private Timestamp fechaBaja;
-	@Column(name = "fch_alta_usuario")
-	private Timestamp fechaAlta;
-	@ManyToOne
-	@JoinColumn(name="id_acceso")
-	Acceso acceso;
-	public Usuario(Long id, String dni, String nombre, String apellidos, String telefono, String email, String clave,
-			int idAcceso, Boolean estaBloqueado, Timestamp fechaFinBloqueo, Timestamp fechaBaja, Timestamp fechaAlta,
-			Acceso acceso) {
-		super();
-		this.id = id;
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.telefono = telefono;
-		this.email = email;
-		this.clave = clave;
-		this.idAcceso = idAcceso;
-		this.estaBloqueado = estaBloqueado;
-		this.fechaFinBloqueo = fechaFinBloqueo;
-		this.fechaBaja = fechaBaja;
-		this.fechaAlta = fechaAlta;
-		this.acceso = acceso;
-	}
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_usuario", nullable=false)
+	private long idUsuario;
+	
+	@Column(name="dni_usuario", nullable=false)
+	private String dniUsuario;
+	
+	@Column(name="nombre_usuario")
+	private String nombreUsuario;
+	
+	@Column(name="apellidos_usuario")
+	private String apellidosUsuario;
+	
+	@Column(name="tlf_usuario")
+	private String tlfUsuario;
+	
+	@Column(name="email_usuario")
+	private String emailUsuario;
+	
+	@Column(name="clave_usuario")
+	private String claveUsuario;
+	
+	@Column(name="estaBloqueado_usuario")
+	private boolean estaBloqueadoUsuario;
+	
+	@Column(name="fch_fin_bloqueo")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar fchFinBloqueo;
+	
+	@Column(name="fch_alta_usuario")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar fchAltaUsuario;
+	
+	@Column(name="fch_baja_usuario")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar fchBajaUsuario;
+	
+    @ManyToOne
+    @JoinColumn(name="id_acceso")
+    Acceso acceso;
+	
+	//CONSTRUCTORES
+
 	public Usuario() {
 		super();
 	}
+
+	public Usuario(long idUsuario, String dniUsuario, String nombreUsuario, String apellidosUsuario, String tlfUsuario,
+			String emailUsuario, String claveUsuario, boolean estaBloqueadoUsuario, Calendar fchFinBloqueo,
+			Calendar fchAltaUsuario, Calendar fchBajaUsuario, Acceso acceso) {
+		super();
+		this.idUsuario = idUsuario;
+		this.dniUsuario = dniUsuario;
+		this.nombreUsuario = nombreUsuario;
+		this.apellidosUsuario = apellidosUsuario;
+		this.tlfUsuario = tlfUsuario;
+		this.emailUsuario = emailUsuario;
+		this.claveUsuario = claveUsuario;
+		this.estaBloqueadoUsuario = estaBloqueadoUsuario;
+		this.fchFinBloqueo = fchFinBloqueo;
+		this.fchAltaUsuario = fchAltaUsuario;
+		this.fchBajaUsuario = fchBajaUsuario;
+		this.acceso = acceso;
+	}	
+	
 }

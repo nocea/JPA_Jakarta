@@ -1,6 +1,4 @@
 package jpa.models.entity;
-
-import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -12,24 +10,26 @@ import jakarta.persistence.Table;
 import jakarta.persistence.OneToMany;
 
 @Entity
-@Table(name = "Accesos",schema="gbp_operacional")
+@Table(name = "accesos",schema="gbp_operacional")
 public class Acceso {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_acceso",nullable=false)
-	private Long id;
-	@Column(name = "codigo_acceso")
-	private String codigo;
+	private Long id_acceso;
+	@Column(name = "codigo_acceso",nullable=false)
+	private String codigo_acceso;
 	@Column(name = "descripcion_acceso")
-	private String descripcion;
+	private String descripcion_acceso;
+	
 	@OneToMany(mappedBy = "acceso")
 	List<Usuario>accesoDeUsuario;
-	public Acceso(Long id, String codigo, String descripcion, List<Usuario> accesoDeUsuario) {
+	
+	public Acceso(String codigo, String descripcion) {
 		super();
-		this.id = id;
-		this.codigo = codigo;
-		this.descripcion = descripcion;
-		this.accesoDeUsuario = accesoDeUsuario;
+		
+		this.codigo_acceso = codigo;
+		this.descripcion_acceso = descripcion;
+		
 	}
 	public Acceso() {
 		super();
