@@ -1,6 +1,7 @@
 package jpa.daos;
 
 import java.util.Calendar;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -27,9 +29,9 @@ public class Prestamo {
 	@ManyToOne
 	Usuario usuario;
 	@ManyToOne
-	Libro libro;
-	@ManyToOne
 	Estado_Prestamo estado;
+	@ManyToMany(mappedBy = "listaPrestamos")
+    List<Libro> listaLibros;
 	public Prestamo(Calendar fch_inicio_prestamo, Calendar fch_fin_prestamo, Calendar fch_entrega_prestamo) {
 		super();
 		this.fch_inicio_prestamo = fch_inicio_prestamo;

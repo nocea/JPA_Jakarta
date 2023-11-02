@@ -26,8 +26,8 @@ public class Libro {
 	private String titulo_libro;
 	@Column(name="edicion_libro")
 	private String edicion_libro;
-	@OneToMany(mappedBy = "libro")
-	List<Prestamo> listaPrestamos;
+	@Column(name="cantidad_libros")
+	private String cantidad_libros;
 	@ManyToOne
 	Coleccion coleccion;
 	@ManyToOne
@@ -37,6 +37,9 @@ public class Libro {
 	@ManyToMany
     @JoinTable(name = "rel_libros_autores",schema = "gbp_operacional")
     List<Autor> listaAutores;
+	@ManyToMany
+    @JoinTable(name = "rel_libros_prestamos",schema = "gbp_operacional")
+    List<Prestamo> listaPrestamos;
 	public Libro(String isbn_libro, String titulo_libro, String edicion_libro) {
 		super();
 		this.isbn_libro = isbn_libro;
@@ -46,6 +49,4 @@ public class Libro {
 	public Libro() {
 		super();
 	}
-	
-
 }

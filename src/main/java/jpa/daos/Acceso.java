@@ -31,5 +31,15 @@ public class Acceso {
 	public Acceso() {
 		super();
 	}
-
+	@Override
+	public String toString() {
+		return "Acceso [id_acceso=" + id_acceso + ", codigo_acceso=" + codigo_acceso + ", descripcion_acceso="
+				+ descripcion_acceso + "]";
+	}
+	public void setCodigo_acceso(String codigo_acceso) {
+		this.codigo_acceso = codigo_acceso;
+	}
+	public void setDescripcion_acceso(String descripcion_acceso) {
+		this.descripcion_acceso = descripcion_acceso;
+	}
 }
