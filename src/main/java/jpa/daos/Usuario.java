@@ -65,20 +65,17 @@ public class Usuario {
 	@Column(name="fch_baja_usuario")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar fch_baja_usuario;
-	
-    @ManyToOne
-    @JoinColumn(name="id_acceso")
-    Acceso acceso;
 	@OneToMany(mappedBy = "usuario")
-	List<Prestamo>prestamosUsuarios;
-
+	List<Prestamo> listaPrestamos;
+	@ManyToOne
+	Acceso acceso;
 	public Usuario() {
 		super();
 	}
 
 	public Usuario(String dni_usuario, String nombre_usuario, String apellidos_usuario, String tlf_usuario,
 			String email_usuario, String clave_usuario, boolean estaBloqueado_usuario, Calendar fch_fin_bloqueo,
-			Calendar fch_alta_usuario, Calendar fch_baja_usuario, Acceso acceso, List<Prestamo> prestamosUsuarios) {
+			Calendar fch_alta_usuario, Calendar fch_baja_usuario) {
 		super();
 		this.dni_usuario = dni_usuario;
 		this.nombre_usuario = nombre_usuario;
@@ -90,8 +87,7 @@ public class Usuario {
 		this.fch_fin_bloqueo = fch_fin_bloqueo;
 		this.fch_alta_usuario = fch_alta_usuario;
 		this.fch_baja_usuario = fch_baja_usuario;
-		this.acceso = acceso;
-		this.prestamosUsuarios = prestamosUsuarios;
+		
 	}
 
 	

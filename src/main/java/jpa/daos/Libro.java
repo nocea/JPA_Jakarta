@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -24,7 +27,16 @@ public class Libro {
 	@Column(name="edicion_libro")
 	private String edicion_libro;
 	@OneToMany(mappedBy = "libro")
-	List<Rel_Autores_Libros> rel_autores_libros;
+	List<Prestamo> listaPrestamos;
+	@ManyToOne
+	Coleccion coleccion;
+	@ManyToOne
+	Editorial editorial;
+	@ManyToOne
+	Genero genero;
+	@ManyToMany
+    @JoinTable(name = "rel_libros_autores",schema = "gbp_operacional")
+    List<Autor> listaAutores;
 	public Libro(String isbn_libro, String titulo_libro, String edicion_libro) {
 		super();
 		this.isbn_libro = isbn_libro;

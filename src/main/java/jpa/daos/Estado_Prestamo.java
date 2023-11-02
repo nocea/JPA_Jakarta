@@ -21,8 +21,8 @@ public class Estado_Prestamo {
 	private String codigo_estado_prestamo;
 	@Column(name="descripcion_estado_prestamo")
 	private String descripcion_estado_prestamo;
-	@OneToMany(mappedBy = "estado_prestamo")
-	List<Prestamo> prestamosEstados;
+	@OneToMany(mappedBy="estado")
+	List<Prestamo> listaPrestamos;
 	public Estado_Prestamo(String codigo_estado_prestamo, String descripcion_estado_prestamo) {
 		super();
 		this.codigo_estado_prestamo = codigo_estado_prestamo;

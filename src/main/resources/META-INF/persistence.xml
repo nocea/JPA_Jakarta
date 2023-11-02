@@ -10,7 +10,10 @@
         <class>jpa.daos.Prestamo</class>
         <class>jpa.daos.Estado_Prestamo</class>
         <class>jpa.daos.Libro</class>
-        <class>jpa.daos.Rel_Autores_Libros</class>
+        <class>jpa.daos.Coleccion</class>
+        <class>jpa.daos.Editorial</class>
+        <class>jpa.daos.Genero</class>
+        <class>jpa.daos.Autor</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>

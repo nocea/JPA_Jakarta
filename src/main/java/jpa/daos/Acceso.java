@@ -20,10 +20,8 @@ public class Acceso {
 	private String codigo_acceso;
 	@Column(name = "descripcion_acceso")
 	private String descripcion_acceso;
-	
 	@OneToMany(mappedBy = "acceso")
-	List<Usuario>accesoDeUsuario;
-	
+	List<Usuario>listaUsuarios;
 	public Acceso(String codigo, String descripcion) {
 		super();
 		

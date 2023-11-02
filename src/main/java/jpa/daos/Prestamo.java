@@ -25,17 +25,16 @@ public class Prestamo {
 	@Column(name="fch_entrega_prestamo")
 	private Calendar fch_entrega_prestamo;
 	@ManyToOne
-	@JoinColumn(name="id_usuario")
 	Usuario usuario;
 	@ManyToOne
-	@JoinColumn(name="id_estado_prestamo")
-	Estado_Prestamo estado_prestamo;
-	public Prestamo(Calendar fch_inicio_prestamo, Calendar fch_fin_prestamo, Calendar fch_entrega_prestamo, Usuario usuario) {
+	Libro libro;
+	@ManyToOne
+	Estado_Prestamo estado;
+	public Prestamo(Calendar fch_inicio_prestamo, Calendar fch_fin_prestamo, Calendar fch_entrega_prestamo) {
 		super();
 		this.fch_inicio_prestamo = fch_inicio_prestamo;
 		this.fch_fin_prestamo = fch_fin_prestamo;
 		this.fch_entrega_prestamo = fch_entrega_prestamo;
-		this.usuario = usuario;
 	}
 	public Prestamo() {
 		super();
