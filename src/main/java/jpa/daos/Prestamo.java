@@ -24,6 +24,9 @@ public class Prestamo {
 	private Calendar fch_inicio_prestamo;
 	@Column(name="fch_fin_prestamo")
 	private Calendar fch_fin_prestamo;
+	public void setId_prestamo(long id_prestamo) {
+		this.id_prestamo = id_prestamo;
+	}
 	@Column(name="fch_entrega_prestamo")
 	private Calendar fch_entrega_prestamo;
 	@ManyToOne

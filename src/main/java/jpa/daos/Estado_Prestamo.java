@@ -28,6 +28,9 @@ public class Estado_Prestamo {
 		this.codigo_estado_prestamo = codigo_estado_prestamo;
 		this.descripcion_estado_prestamo = descripcion_estado_prestamo;
 	}
+	public void setCodigo_estado_prestamo(String codigo_estado_prestamo) {
+		this.codigo_estado_prestamo = codigo_estado_prestamo;
+	}
 	public Estado_Prestamo() {
 		super();
 	}

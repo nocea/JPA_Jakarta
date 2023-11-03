@@ -22,6 +22,9 @@ public class Libro {
 	private long id_libro;
 	@Column(name="isbn_libro")
 	private String isbn_libro;
+	public void setIsbn_libro(String isbn_libro) {
+		this.isbn_libro = isbn_libro;
+	}
 	@Column(name="titulo_libro")
 	private String titulo_libro;
 	@Column(name="edicion_libro")
