@@ -28,6 +28,14 @@ public class Usuario {
 	@Column(name="dni_usuario", nullable=false)
 	private String dni_usuario;
 	
+	public String getDni_usuario() {
+		return dni_usuario;
+	}
+
+	public void setDni_usuario(String dni_usuario) {
+		this.dni_usuario = dni_usuario;
+	}
+
 	@Column(name="nombre_usuario")
 	private String nombre_usuario;
 	
@@ -42,14 +50,6 @@ public class Usuario {
 	
 	@Column(name="clave_usuario")
 	private String clave_usuario;
-	
-	public long getId_usuario() {
-		return id_usuario;
-	}
-
-	public void setId_usuario(long id_usuario) {
-		this.id_usuario = id_usuario;
-	}
 
 	@Column(name="estaBloqueado_usuario")
 	private boolean estaBloqueado_usuario;
@@ -73,9 +73,10 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(String dni_usuario, String nombre_usuario, String apellidos_usuario, String tlf_usuario,
-			String email_usuario, String clave_usuario, boolean estaBloqueado_usuario, Calendar fch_fin_bloqueo,
-			Calendar fch_alta_usuario, Calendar fch_baja_usuario) {
+	public Usuario(String dni_usuario, String nombre_usuario, String apellidos_usuario,
+			String tlf_usuario, String email_usuario, String clave_usuario, boolean estaBloqueado_usuario,
+			Calendar fch_fin_bloqueo, Calendar fch_alta_usuario, Calendar fch_baja_usuario,
+			Acceso acceso) {
 		super();
 		this.dni_usuario = dni_usuario;
 		this.nombre_usuario = nombre_usuario;
@@ -87,7 +88,16 @@ public class Usuario {
 		this.fch_fin_bloqueo = fch_fin_bloqueo;
 		this.fch_alta_usuario = fch_alta_usuario;
 		this.fch_baja_usuario = fch_baja_usuario;
-		
+		this.acceso = acceso;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id_usuario=" + id_usuario + ", dni_usuario=" + dni_usuario + ", nombre_usuario="
+				+ nombre_usuario + ", apellidos_usuario=" + apellidos_usuario + ", tlf_usuario=" + tlf_usuario
+				+ ", email_usuario=" + email_usuario + ", clave_usuario=" + clave_usuario + ", estaBloqueado_usuario="
+				+ estaBloqueado_usuario + ", fch_fin_bloqueo=" + fch_fin_bloqueo + ", fch_alta_usuario="
+				+ fch_alta_usuario + ", fch_baja_usuario=" + fch_baja_usuario + ", acceso=" + acceso + "]";
 	}
 
 	

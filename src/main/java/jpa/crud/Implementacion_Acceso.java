@@ -7,7 +7,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jpa.daos.Acceso;
 
-public class CrudImplAcceso implements CrudIntAcceso {
+public class Implementacion_Acceso implements Interfaz_Acceso {
 
 	@Override
 	public void InsertAcceso(Acceso acceso,EntityManager em) {
