@@ -17,14 +17,17 @@ public class Genero {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_genero",nullable=false)
 	private long id_genero;
-	@Column(name="nombre_editorial")
-	private String nombre_editorial;
+	@Column(name="nombre_genero")
+	private String nombre_genero;
+	public void setNombre_genero(String nombre_genero) {
+		this.nombre_genero = nombre_genero;
+	}
 	@OneToMany(mappedBy = "genero")
 	List<Libro>listaLibros;
 	public Genero(long id_genero, String nombre_editorial) {
 		super();
 		this.id_genero = id_genero;
-		this.nombre_editorial = nombre_editorial;
+		this.nombre_genero = nombre_editorial;
 	}
 	public Genero() {super();}
 }

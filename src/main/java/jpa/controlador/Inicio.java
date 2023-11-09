@@ -27,13 +27,13 @@ public class Inicio {
 		Interfaz_Acceso.InsertAcceso(acceso2, em);
 		Calendar fechaActual=Calendar.getInstance();//PARA PRUEBAS CON FECHA 
 		//CREACION DE USUARIOS
-		Usuario usu1=new Usuario("1234x","mario","nocea","12345g","mnocea@","marmarmar",false,
-				fechaActual,fechaActual,fechaActual,acceso);
-		Usuario usu2=new Usuario("1234x","paco","cabrera","12345g","mnocea@","marmarmar",false,
-				fechaActual,fechaActual,fechaActual,acceso);
-		Interfaz_Usuario Interfaz_Usuario =new Implementacion_Usuario();
-		Interfaz_Usuario.InsertUsuario(usu1, em);
-		Interfaz_Usuario.InsertUsuario(usu2, em);
+//		Usuario usu1=new Usuario("1234x","mario","nocea","12345g","mnocea@","marmarmar",false,
+//				fechaActual,fechaActual,fechaActual,acceso);
+//		Usuario usu2=new Usuario("1234x","paco","cabrera","12345g","mnocea@","marmarmar",false,
+//				fechaActual,fechaActual,fechaActual,acceso);
+//		Interfaz_Usuario Interfaz_Usuario =new Implementacion_Usuario();
+//		Interfaz_Usuario.InsertUsuario(usu1, em);
+//		Interfaz_Usuario.InsertUsuario(usu2, em);
 		
 		
 		

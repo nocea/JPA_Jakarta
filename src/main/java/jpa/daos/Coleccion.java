@@ -19,6 +19,9 @@ public class Coleccion {
 	private long id_coleccion;
 	@Column(name="nombre_editorial")
 	private String nombre_editorial;
+	public void setNombre_editorial(String nombre_editorial) {
+		this.nombre_editorial = nombre_editorial;
+	}
 	@OneToMany(mappedBy = "coleccion")
 	List<Libro>listaLibros;
 	public Coleccion(long id_coleccion, String nombre_editorial) {

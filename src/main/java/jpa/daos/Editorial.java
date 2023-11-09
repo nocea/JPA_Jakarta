@@ -17,17 +17,20 @@ public class Editorial {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_editorial",nullable=false)
 	private long id_editorial;
-	@Column(name="nombre_genero")
-	private String nombre_genero;
-	@Column(name="descripcion_genero")
-	private String descripcion_genero;
+	@Column(name="nombre_editorial")
+	private String nombre_editorial;
+	public void setNombre_editorial(String nombre_editorial) {
+		this.nombre_editorial = nombre_editorial;
+	}
+	@Column(name="descripcion_editorial")
+	private String descripcion_editorial;
 	@OneToMany(mappedBy = "editorial")
 	List<Libro>listaLibros;
-	public Editorial(long id_editorial, String nombre_genero, String descripcion_genero) {
+	public Editorial(long id_editorial, String nombre_editorial, String descripcion_editorial) {
 		super();
 		this.id_editorial = id_editorial;
-		this.nombre_genero = nombre_genero;
-		this.descripcion_genero = descripcion_genero;
+		this.nombre_editorial = nombre_editorial;
+		this.descripcion_editorial = descripcion_editorial;
 	}
 	public Editorial() {
 		super();

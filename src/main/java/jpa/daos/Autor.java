@@ -15,12 +15,16 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="autores",schema="gbp_operacional")
 public class Autor {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_autor")
 	private long id_autor;
 	@Column(name="nombre_autor")
 	private String nombre_autor;
+	public void setNombre_autor(String nombre_autor) {
+		this.nombre_autor = nombre_autor;
+	}
 	@Column(name="apellidos_autor")
 	private String apellidos_autor;
 	@ManyToMany(mappedBy = "listaAutores")
